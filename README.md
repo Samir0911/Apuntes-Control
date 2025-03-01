@@ -1,5 +1,5 @@
-### Samir Romero - 87382
-### Miguel Rueda -
+### Andrey Samir Romero Buitrago - 87382
+### Miguel Ángel Rueda Santana - 73786
 
 # Clase # 1
 
@@ -124,6 +124,107 @@ Tabla 1. Aplicaciones del Control de Movimiento
 
 El control de movimiento es fundamental en la automatización moderna, optimizando precisión, velocidad y eficiencia en múltiples industrias.
 
+## Ejercicios sobre Control de Movimiento
+
+### Ejercicio 1: Cálculo de Velocidad en un Sistema de Control de Movimiento
+
+Un motor mueve una cinta transportadora con una velocidad angular de $$\omega = 10 $$ rad/s. Si el radio del tambor que impulsa la cinta es de r = 0.15 m, determina la velocidad lineal de la cinta.
+
+**Fórmula utilizada:**
+
+$$
+v = \omega \cdot r
+$$
+
+**Sustituyendo los valores:**
+
+$$
+v = (10 \text{ rad/s}) \cdot (0.15 \text{ m})
+$$
+
+$$
+v = 1.5 \text{ m/s}
+$$
+
+**Respuesta:** La velocidad lineal de la cinta es **1.5 m/s**.
+
+---
+
+### Ejercicio 2: Cálculo de Torque en un Motor
+
+Un servomotor aplica una fuerza de F = 50N en el extremo de un brazo de palanca de r = 0.2 m. Calcula el torque generado por el motor.
+
+**Fórmula utilizada:**
+
+$$
+\tau = F \cdot r
+$$
+
+**Sustituyendo los valores:**
+
+$$
+\tau = (50 \text{ N}) \cdot (0.2 \text{ m})
+$$
+
+$$
+\tau = 10 \text{ Nm}
+$$
+
+**Respuesta:** El torque generado por el motor es **10 Nm**.
+
+### Ejercicio 3: Aceleración Angular en un Motor
+
+Un motor eléctrico parte del reposo y alcanza una velocidad angular de $$\omega_f = 50$$ rad/s en un tiempo de  t = 5 s. Determina la aceleración angular necesaria para lograr este cambio de velocidad.
+
+**Fórmula utilizada:**
+
+$$
+\alpha = \frac{\omega_f - \omega_0}{t}
+$$
+
+**Sustituyendo los valores:**
+
+$$
+\alpha = \frac{50 - 0}{5}
+$$
+
+$$
+\alpha = 10 \text{ rad/s}^2
+$$
+
+**Respuesta:** La aceleración angular del motor es **10 rad/s²**.
+
+---
+
+### Ejercicio 4: Fuerza Necesaria para Acelerar un Carro con Control de Movimiento
+
+Un sistema de control de movimiento en una línea de ensamblaje impulsa un carro de m = 200 kg con una aceleración de a = 2.5 m/s². Determina la fuerza que debe aplicar el sistema.
+
+**Fórmula utilizada:**
+
+$$
+F = m \cdot a
+$$
+
+**Sustituyendo los valores:**
+
+$$
+F = (200 \text{ kg}) \cdot (2.5 \text{ m/s}^2)
+$$
+
+$$
+F = 500 \text{ N}
+$$
+
+**Respuesta:** La fuerza necesaria para acelerar el carro es **500 N**.
+
+## Conclusión
+
+A lo largo de estos apuntes, aprendimos sobre el **control de movimiento** y su importancia en la automatización. Descubrimos cómo los motores, actuadores y HMI permiten un control preciso en diversas aplicaciones industriales, como impresoras, cortadoras y máquinas CNC. Entendimos cómo ha evolucionado este campo, pasando de sistemas mecánicos con grandes motores y engranajes a soluciones más eficientes y flexibles.  
+
+Además, resolvimos ejercicios que nos ayudaron a aplicar conceptos clave, como el cálculo de velocidad, torque, aceleración angular y fuerza. Gracias a esto, ahora tenemos una mejor comprensión de cómo funciona el control de movimiento en la industria y cómo se pueden optimizar los sistemas para mejorar su desempeño.
+
+
 ---
 
 # Clase #2
@@ -137,8 +238,13 @@ El control cascada es una técnica utilizada en sistemas de control para mejorar
 #### Definición
 *Control Cascada*: Es un sistema de control que utiliza múltiples lazos de retroalimentación para mejorar la precisión y estabilidad del sistema. Cada lazo se encarga de controlar una variable específica, y el error de un lazo se utiliza como referencia para el siguiente.
 
+
 #### Ejemplo: Control de Velocidad en un Motor Eléctrico
 En este ejemplo, el motor tiene un sensor que mide la velocidad actual y envía esta información al controlador. El controlador compara la velocidad actual con el punto de consigna (velocidad deseada) y ajusta la corriente eléctrica para mantener la velocidad dentro del rango deseado.
+
+![Figura 5](imagenes/control1.png)
+
+Figura 5. Diagrama control PID.([Fuente](https://www.picuino.com/es/control-pid.html))
 
 1. **Sensor de Velocidad:**: Mide la velocidad actual del motor.
 2. **Controlador**: Compara la velocidad actual con el punto de consigna y ajusta la corriente eléctrica.
@@ -155,6 +261,11 @@ En el ejemplo del motor eléctrico, podríamos agregar un segundo lazo que contr
 #### Esquema con Control Cascada
 - **Lazo Externo**: Controla la velocidad del motor comparando la velocidad actual con el punto de consigna.
 - **Lazo Interno**: Controla la corriente eléctrica para asegurar que la potencia entregada al motor sea precisa.
+
+![Figura 6](imagenes/control2.png)
+
+Figura 6. Diagrama control Cascada.  ([Fuente](https://controlautomaticoeducacion.com/control-realimentado/control-en-cascada/))
+
 
 ---
 
