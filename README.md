@@ -16,8 +16,8 @@ El **control de movimiento**, también conocido como "robótica", se refiere al 
 El control de movimiento se utiliza en una variedad de aplicaciones industriales, incluyendo:
 
 - **Impresoras**: Para posicionar con precisión el cabezal de impresión y el papel. (ver Figura 1)
-- **Cortadoras**: Para dirigir herramientas de corte en trayectorias específicas. (ver Figura 2)
-- **Máquinas dobladoras**: Para controlar el ángulo y la posición en operaciones de doblado de materiales. (ver Figura 3)
+- **Cortadoras**: Para dirigir herramientas de corte en trayectorias específicas. 
+- **Máquinas dobladoras**: Para controlar el ángulo y la posición en operaciones de doblado de materiales. 
 
 ## Tipos de Movimientos en el Control de Movimiento
 
@@ -32,13 +32,6 @@ En las impresoras, el control de movimiento es esencial para:
 - **Posicionamiento del Cabezal de Impresión**: Mover el cabezal a lo largo del papel con precisión.
 - **Alimentación del Papel**: Controlar el avance del papel para asegurar una impresión uniforme.
 
-## Aplicaciones que Usan Control de Movimiento
-
-| Aplicación           | Descripción                                                                                 |
-|----------------------|---------------------------------------------------------------------------------------------|
-| **Cortadoras**       | Máquinas que emplean control de movimiento para dirigir herramientas de corte con precisión.|
-| **Máquinas Dobladoras** | Equipos que utilizan sistemas de control para realizar dobleces exactos en materiales.    |
-| **Máquinas CNC**     | Equipos que realizan operaciones de mecanizado controladas por computadora.                 |
 
 ## Evolución del Control de Movimiento
 
@@ -53,16 +46,83 @@ En las impresoras, el control de movimiento es esencial para:
 - **Reducción de Tamaño y Complejidad**: Se utilizan motores más pequeños y sistemas electrónicos, disminuyendo la necesidad de engranajes voluminosos.
 - **Flexibilidad Operativa**: Es más sencillo reprogramar y adaptar máquinas para diferentes tareas sin modificaciones mecánicas extensas.
 
-## Espacios para Figuras
 
-A continuación, se sugieren espacios para incluir figuras que complementen los temas tratados:
+  ![Figura 1](imagenes/impresora.png) 
 
-1. **Figura 1**: Diagrama de una impresora mostrando los componentes controlados por sistemas de movimiento.
-   ([Fuente](esquema1.png))
-3. **Figura 2**: Imagen comparativa entre una máquina antigua con múltiples engranajes y una moderna con control de movimiento avanzado.
-4. **Figura 3**: Esquema de una máquina dobladora que ilustre cómo el control de movimiento influye en el proceso de doblado.
+Figura 1. Diagrama de una impresora mostrando los componentes controlados por sistemas de movimiento. ([Fuente](https://quecartucho.es/blog/partes-de-una-impresora/))
+
+  ![Figura 2](imagenes/dobladora.png)![Figura 2](imagenes/dobla.png)
+  
+Figura 2. Imagen comparativa entre una máquina antigua con múltiples engranajes y una moderna con control de movimiento avanzado (CNC).([Fuente1](https://download.e-bookshelf.de/download/0003/9488/62/L-G-0003948862-0008296858.pdf))([Fuente2](https://aeromaquinados.com/product/dobladoras-de-lamina-cnc-80t-2500/))
+
 
 Estas figuras ayudarán a visualizar los conceptos y la evolución en el control de movimiento dentro de diversas aplicaciones industriales.
+
+## Conceptos Claves en el Control de Movimiento
+
+## ¿Qué es un Actuador (Motor)?
+
+Un **actuador** es un dispositivo que convierte energía en movimiento. En el contexto del control de movimiento, el actuador más común es el **motor**, que puede ser:
+
+![Figura 3](imagenes/motor.png)
+
+Figura 3. actuadores.([Fuente](https://funciondelaindustria.wordpress.com/2017/05/10/los-motores-electricos-y-su-importancia-en-la-industria/))
+
+## ¿Qué es un HMI?
+
+Un **HMI (Human-Machine Interface)** es una interfaz que permite a los operadores comunicarse con un sistema de control de movimiento. Puede incluir:
+
+- **Pantallas táctiles** con información en tiempo real.
+- **Botones físicos y diales** para control manual.
+- **Software SCADA** para supervisión y análisis de datos.
+
+El HMI facilita la configuración, monitoreo y ajuste de parámetros en sistemas automatizados.
+
+![Figura 4](imagenes/HMI.png)
+
+Figura 4. HMI (Human-Machine Interface).([Fuente](https://grupo-syz.com/todos-los-productos/automatizacion/inferfaz-hombre-maquina-hmi/))
+
+
+## Problemas Comunes en el Control de Movimiento
+
+El control de movimiento puede enfrentar diversos problemas, entre ellos:
+
+### 1. **Errores de Posicionamiento**
+   - Causados por imprecisiones en sensores o desajustes mecánicos.
+   - Se pueden corregir con sistemas de retroalimentación como encoders.
+
+### 2. **Vibraciones y Resonancias**
+   - Ocurren cuando el sistema mecánico no está bien amortiguado.
+   - Se solucionan con ajuste de parámetros PID o uso de materiales adecuados.
+
+### 3. **Sobrecalentamiento de Motores**
+   - Puede deberse a un dimensionamiento incorrecto del motor.
+   - Se mitiga con ventilación, disipadores de calor o selección de motores más eficientes.
+
+### 4. **Fallas en la Comunicación**
+   - Conexiones inadecuadas o interferencias pueden causar pérdida de datos.
+   - Se previenen con cableado de calidad y protocolos de comunicación robustos.
+
+### 5. **Fallas en la Fuente de Alimentación**
+   - Un suministro inestable puede afectar el rendimiento del sistema.
+   - Uso de reguladores de voltaje y fuentes de alimentación adecuadas minimizan este problema.
+
+## Otras Aplicaciones del Control de Movimiento
+
+Además de las impresoras, cortadoras y máquinas dobladoras, el control de movimiento se encuentra en:
+
+| Aplicación                 | Descripción                                                                 |
+|----------------------------|-----------------------------------------------------------------------------|
+| **Robótica Industrial**    | Control preciso de brazos robóticos en líneas de ensamblaje.               |
+| **Vehículos Autónomos**    | Sistemas de navegación en drones y robots móviles.                         |
+| **Máquinas CNC**          | Fresado y torneado controlado por computadora.                              |
+| **Impresión 3D**          | Movimiento preciso de extrusores para crear objetos en capas.               |
+| **Ascensores**            | Regulación de la velocidad y posicionamiento de cabinas.                    |
+| **Sistemas de Embalaje**  | Movimiento sincronizado de productos en líneas de producción.               |
+
+Tabla 1. Aplicaciones del Control de Movimiento
+
+El control de movimiento es fundamental en la automatización moderna, optimizando precisión, velocidad y eficiencia en múltiples industrias.
 
 ---
 
