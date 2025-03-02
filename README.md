@@ -229,9 +229,6 @@ Además, resolvimos ejercicios que nos ayudaron a aplicar conceptos clave, como 
 
 # Clase #2
 
-## Control de Movimiento
-El control de movimiento es un aspecto crucial en ingeniería, especialmente en sistemas que requieren mantener condiciones específicas, como temperatura, presión o velocidad.
-
 ### Control Cascada
 El control cascada es una técnica utilizada en sistemas de control para mejorar la estabilidad y precisión del control. En este método, se utilizan múltiples lazos de control, donde el error de un lazo se utiliza como entrada para otro lazo.
 
@@ -266,13 +263,22 @@ En el ejemplo del motor eléctrico, podríamos agregar un segundo lazo que contr
 
 Figura 6. Diagrama control Cascada.  ([Fuente](https://controlautomaticoeducacion.com/control-realimentado/control-en-cascada/))
 
+El lazo secundario actúa más rápido que el primario, compensando perturbaciones antes de que afecten la velocidad final.
+
+**Diagrama del control en cascada:**
+- Entrada de referencia → Controlador PID primario (velocidad) → Controlador PID secundario (corriente) → Motor DC → Salida
+
+### **Ventajas del Control en Cascada**
+- Mayor **precisión y estabilidad** en la regulación de la variable principal.
+- Respuesta más **rápida a perturbaciones** internas y externas.
+- Reducción de efectos de **retardos y variaciones en la carga**.
 
 ---
 
 ### Ecuaciones Básicas para Control de Velocidad
 Para entender cómo funciona el control de velocidad, podemos considerar la ecuación básica del torque en un motor eléctrico:
 
-   T = k_t × I
+   $$T = k_t × I$$
 
    
 Donde:
@@ -282,20 +288,123 @@ Donde:
 
 ---
 
-### Tabla Comparativa: Control Directo vs. Control Cascada
+## Tipos de Control en Cascada
 
-| Característica | Control Directo | Control Cascada |
-|----------------|-----------------|-----------------|
-| Precisión      | Menor           | Mayor           |
-| Estabilidad    | Menor           | Mayor           |
-| Complejidad    | Menor           | Mayor           |
+| Tipo de Control en Cascada | Descripción |
+|---------------------------|-------------|
+| **Con lazo de corriente** | Se usa en motores eléctricos, donde el lazo primario controla la velocidad y el secundario la corriente. |
+| **Con lazo de temperatura** | Usado en procesos térmicos, donde el lazo primario controla la temperatura y el secundario el flujo de calor. |
+| **Con lazo de presión** | Aplicado en sistemas hidráulicos, donde el lazo primario regula la presión y el secundario el caudal de fluido. |
+
+Tabla 2. Tipos de Control en Cascada
+
+## Métodos de Sintonización en Control en Cascada
+
+Para un buen desempeño del control en cascada, es crucial sintonizar correctamente los lazos de control. Existen varios métodos:
+
+1. **Método Ziegler-Nichols:**  
+   - Se usa para ajustar controladores PID con base en la respuesta al escalón del sistema.
+   - Se determina la ganancia crítica ($$K_c$$) y el período de oscilación ($$T_u$$) para calcular los parámetros del PID.
+
+2. **Método de la Respuesta en Frecuencia:**  
+   - Se analizan las respuestas en frecuencia para encontrar los valores óptimos de control.
+
+3. **Método de Prueba y Error:**  
+   - Se ajustan los parámetros del controlador iterativamente hasta lograr un buen desempeño.
+
+4. **Sintonización en Dos Etapas:**  
+   - Primero se ajusta el lazo secundario para que responda rápidamente.
+   - Luego se ajusta el lazo primario con base en el comportamiento del lazo secundario.
+
+# **Sintonización del Control en Cascada para un Motor DC**
+
+## **Fórmulas de Sintonización**
+
+En un sistema de **control en cascada** para un **motor DC**, se deben sintonizar dos lazos:
+
+- **Lazo secundario (corriente):** Controla la corriente del motor para mejorar la respuesta del sistema.  
+- **Lazo primario (velocidad):** Controla la velocidad del motor utilizando la salida del lazo secundario.
+
+La sintonización se realiza siguiendo estos pasos:
+
+### **1. Sintonización del lazo de corriente**
+Se usa un **controlador proporcional-integral (PI)** para garantizar una respuesta rápida sin afectar la estabilidad.
+
+- **Ganancia proporcional del lazo de corriente:**
+
+
+ $$K_{p_i}=\frac{L}{R}$$
+ 
+
+- **Tiempo integral del lazo de corriente:**
+
+  $$T_{i_i} = \frac{L}{R}$$
+
+### **2. Sintonización del lazo de velocidad**
+Se usa un **controlador PID** para regular la velocidad en función de la corriente.
+
+- **Ganancia proporcional del lazo de velocidad:**
+
+  $$K_{p_v} = \frac{1}{K_m \cdot K_{p_i}}$$
+
+- **Tiempo integral del lazo de velocidad:**
+
+  $$T_{i_v} = \frac{J}{K_m \cdot K_{p_i}}$$
+
+- **Tiempo derivativo del lazo de velocidad:**
+
+  $$T_{d_v} = \frac{J}{K_m \cdot K_{p_i} \cdot K_{p_v}}$$
+
+Donde:
+- $L$ = inductancia del motor.  
+- $R$ = resistencia del motor.  
+- $K_m$ = constante de torque del motor.  
+- $J$ = inercia del rotor.  
+- $K_{p_i}$ = ganancia del lazo de corriente.  
+- $K_{p_v}$ = ganancia del lazo de velocidad.  
+- $T_{i_i}$, $T_{i_v}$, $T_{d_v}$ = tiempos de integración y derivación.
 
 ---
 
-### Espacio para Figura: Esquema de Control de Temperatura
+## **Problema de Aplicación**
 
+### **Enunciado**
+Un motor DC de parámetros conocidos tiene los siguientes valores:
 
----
+- Resistencia: $R = 1.2\, \Omega$
+- Inductancia: $L = 0.5$ H
+- Constante de torque: $K_m = 0.05$ Nm/A
+- Inercia del rotor: $J = 0.01$ kg·m²
 
-### Espacio para Figura: Representación del Control Cascada
-*(Aquí puedes insertar una figura que ilustre cómo funciona el control cascada en un sistema).*
+Se requiere sintonizar los lazos de **corriente y velocidad** en un **control en cascada**.
+
+### **Solución Paso a Paso**
+
+1. **Cálculo de los parámetros del lazo de corriente:**
+
+   - **Ganancia proporcional del lazo de corriente:**
+
+     $$K_{p_i} = \frac{L}{R} = \frac{0.5}{1.2} = 0.4167$$
+
+   - **Tiempo integral del lazo de corriente:**
+
+     $$T_{i_i} = \frac{L}{R} = \frac{0.5}{1.2} = 0.4167 \text{ s}$$
+
+2. **Cálculo de los parámetros del lazo de velocidad:**
+
+   - **Ganancia proporcional del lazo de velocidad:**
+
+     $$K_{p_v} = \frac{1}{K_m \cdot K_{p_i}} = \frac{1}{0.05 \times 0.4167} = 48$$
+
+   - **Tiempo integral del lazo de velocidad:**
+
+     $$T_{i_v} = \frac{J}{K_m \cdot K_{p_i}} = \frac{0.01}{0.05 \times 0.4167} = 0.48 \text{ s}$$
+
+   - **Tiempo derivativo del lazo de velocidad:**
+
+     $$T_{d_v} = \frac{J}{K_m \cdot K_{p_i} \cdot K_{p_v}} = \frac{0.01}{0.05 \times 0.4167 \times 48} = 0.01 \text{ s}$$
+
+### **Conclusiónes**
+Con estos valores, el **sistema de control en cascada** permitirá una respuesta más rápida y estable en la regulación de la velocidad del motor DC.  
+El **lazo de corriente** responde antes que el **lazo de velocidad**, compensando perturbaciones en la carga antes de que afecten el desempeño general.
+
