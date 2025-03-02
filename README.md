@@ -404,7 +404,84 @@ Se requiere sintonizar los lazos de **corriente y velocidad** en un **control en
 
      $$T_{d_v} = \frac{J}{K_m \cdot K_{p_i} \cdot K_{p_v}} = \frac{0.01}{0.05 \times 0.4167 \times 48} = 0.01 \text{ s}$$
 
-### **Conclusiónes**
-Con estos valores, el **sistema de control en cascada** permitirá una respuesta más rápida y estable en la regulación de la velocidad del motor DC.  
-El **lazo de corriente** responde antes que el **lazo de velocidad**, compensando perturbaciones en la carga antes de que afecten el desempeño general.
+---
+
+# **Conclusión**
+
+En esta clase aprendimos sobre el **control cascada**, sistemas de control donde se emplean múltiples lazos de realimentación para mejorar la estabilidad y el desempeño del sistema. Comparado con el **control PID directo**, el control en cascada permite una mejor compensación de perturbaciones y un ajuste más preciso del sistema.
+
+Concluimos que un **control en cascada** se compone de dos lazos principales:  
+- **Lazo primario (externo):** Controla la variable principal del sistema, como la velocidad o la posición.  
+- **Lazo secundario (interno):** Regula una variable intermedia, como la corriente o el torque del motor, permitiendo una respuesta más rápida y estable.
+
+También analizamos un ejemplo práctico: **el control de un motor DC**, donde comparamos un **control PID simple** con un **control en cascada** que incluye un lazo interno de corriente y un lazo externo de velocidad. Descubrimos que con el lazo adicional se mejora el tiempo de respuesta y se reduce el impacto de perturbaciones externas.
+
+Además, estudiamos diferentes **métodos de sintonización** para ajustar los parámetros del controlador, lo que nos permitió entender cómo optimizar el desempeño del sistema.
+
+En general, comprendimos que el control en cascada es una estrategia poderosa en **sistemas industriales y automatización**, utilizada en motores, sistemas térmicos, procesos químicos, entre otros. Al aplicar este enfoque, logramos un mayor control y estabilidad en comparación con un sistema de control convencional.
+
+
+## Clase #3
+
+---
+
+# **Servomotores**
+
+## **Definición**
+Un **servomotor** es un tipo de motor diseñado para proporcionar un control preciso de su posición, velocidad y par. Funciona mediante un sistema de realimentación, lo que permite ajustar su movimiento de manera precisa en respuesta a las señales de control. Se utilizan en aplicaciones que requieren movimientos exactos, como robótica, sistemas de automatización, maquinaria CNC y control de aeronaves. Los servomotores pueden funcionar con corriente continua (DC) o corriente alterna (AC), dependiendo de la aplicación y las necesidades de control.
+
+---
+
+## **Variables a Controlar en un Servomotor**
+Los servomotores requieren la regulación de diversas variables para garantizar su correcto funcionamiento y precisión en el movimiento. Las principales variables a controlar son:
+
+- **Posición:** Es el ángulo o la distancia a la que se encuentra el eje del servomotor con respecto a su punto de referencia. Se mide en grados o radianes y es fundamental en aplicaciones como la robótica y el control de actuadores.
+
+- **Velocidad:** Se refiere a la rapidez con la que cambia la posición del servomotor en un tiempo determinado. Se expresa en revoluciones por minuto (RPM) o en radianes por segundo. El control de velocidad es esencial en aplicaciones industriales donde se requiere un movimiento suave y preciso.
+
+- **Torque (Par Motor):** Es la fuerza rotacional generada por el motor, necesaria para mover una carga específica. Un servomotor debe poder proporcionar el torque suficiente sin sobrecargar el sistema eléctrico o mecánico.
+
+- **Corriente Eléctrica:** Es la cantidad de electricidad que fluye a través del motor y está relacionada con el torque que puede generar. Un control adecuado de la corriente permite mejorar la eficiencia y evitar sobrecalentamientos.
+
+- **Voltaje de Alimentación:** Es la tensión eléctrica suministrada al servomotor. Diferentes tipos de servomotores requieren distintos voltajes para operar, y una variación en la alimentación puede afectar su rendimiento.
+
+---
+
+## **Componentes del Servomotor**
+El funcionamiento de un servomotor depende de varios componentes que trabajan en conjunto para proporcionar un movimiento preciso. Estos componentes principales son:
+
+### **1. Sección de Comando**
+La sección de comando es la encargada de recibir y procesar las señales de entrada que determinan el comportamiento del servomotor. Estas señales pueden provenir de controladores como microcontroladores, PLCs o computadoras industriales. Dependiendo del tipo de servomotor, las señales de comando pueden ser señales analógicas, digitales o de modulación por ancho de pulso (PWM). La calidad y precisión de la señal de comando influyen directamente en la respuesta del motor.
+
+### **2. Sección de Controlador**
+El controlador es la parte encargada de interpretar la señal de comando y ajustar la alimentación del motor para generar el movimiento deseado. Este control puede implementarse mediante algoritmos como PID (Proporcional-Integral-Derivativo), que permiten regular la posición, velocidad y torque de manera óptima. Además, el controlador gestiona la realimentación del sistema, comparando la posición real con la posición deseada y aplicando las correcciones necesarias.
+
+### **3. Sección del Motor**
+El motor es el componente que convierte la energía eléctrica en movimiento mecánico. Dependiendo del tipo de aplicación, los servomotores pueden emplear motores de corriente continua (DC) o de corriente alterna (AC). La selección del motor adecuado depende de factores como la precisión requerida, la potencia, la velocidad y la eficiencia del sistema.
+
+---
+
+## **Tipos de Motores Utilizados en Servomotores**
+Los servomotores pueden emplear distintos tipos de motores según las necesidades del sistema. Los más utilizados son:
+
+### **1. Motores de Corriente Continua (DC)**
+Los motores de corriente continua son ampliamente utilizados en servomecanismos debido a su capacidad de respuesta rápida y su facilidad de control. Estos motores funcionan con una alimentación directa y pueden ser controlados mediante señales de voltaje o corriente. Son comunes en aplicaciones de robótica, automatización industrial y sistemas de posicionamiento. Existen dos tipos principales:
+
+- **Motores DC con Escobillas:** Utilizan un conjunto de escobillas y un conmutador para cambiar la polaridad del rotor. Son económicos y fáciles de controlar, pero requieren mantenimiento periódico debido al desgaste de las escobillas.
+
+- **Motores DC sin Escobillas (Brushless):** No poseen escobillas, lo que reduce el desgaste mecánico y mejora la eficiencia y la vida útil del motor. Se controlan electrónicamente mediante señales de conmutación.
+
+### **2. Motores de Corriente Alterna (AC)**
+Los motores de corriente alterna se utilizan en aplicaciones donde se requiere mayor potencia y eficiencia energética. Son más robustos y requieren menos mantenimiento en comparación con los motores de corriente continua. Se dividen en dos categorías principales:
+
+#### **Motores Síncronos**
+Los motores síncronos son aquellos cuya velocidad de giro está sincronizada con la frecuencia de la corriente de alimentación. Son ideales para aplicaciones donde se necesita un control preciso de la velocidad y la posición, como en maquinaria industrial, generadores y sistemas de propulsión eléctrica.
+
+#### **Motores Asíncronos (de Inducción)**
+Los motores asíncronos, también conocidos como motores de inducción, son los más utilizados en la industria debido a su bajo costo y su funcionamiento confiable. En estos motores, la velocidad del rotor es ligeramente menor que la velocidad del campo magnético del estator. Se emplean en sistemas de bombeo, ventiladores, compresores y otras aplicaciones de alto rendimiento.
+
+---
+
+## **Conclusión**
+Los **servomotores** desempeñan un papel fundamental en el control de movimiento, permitiendo un ajuste preciso de variables como la posición, la velocidad y el torque. Su diseño incluye secciones de comando, control y motor, que trabajan en conjunto para garantizar un desempeño óptimo. Existen diversos tipos de motores utilizados en servomecanismos, como los **motores DC** con y sin escobillas, así como los **motores AC síncronos y asíncronos**, cada uno con sus propias ventajas y aplicaciones. La elección del servomotor adecuado depende de la precisión, potencia y eficiencia requerida en cada aplicación específica.
 
