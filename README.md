@@ -473,7 +473,7 @@ Los motores de corriente continua son ampliamente utilizados en servomecanismos 
 
 ![Figura 7](imagenes/motordc.png)
 
-Figura 7. Diagrama control Cascada.  ([Fuente](https://universalblue.es/blog/que-es-un-motor-dc-o-inverter/))
+Figura 7. motor DC.  ([Fuente](https://universalblue.es/blog/que-es-un-motor-dc-o-inverter/))
 
 ### **2. Motores de Corriente Alterna (AC)**
 Los motores de corriente alterna se utilizan en aplicaciones donde se requiere mayor potencia y eficiencia energética. Son más robustos y requieren menos mantenimiento en comparación con los motores de corriente continua. Se dividen en dos categorías principales:
@@ -486,7 +486,7 @@ Los motores asíncronos, también conocidos como motores de inducción, son los 
 
 ![Figura 8](imagenes/motorac.png)
 
-Figura 8. Diagrama control Cascada.  ([Fuente](https://www.mcb.com.mx/alta-demanda-de-los-motores-electricos-en-la-industria-actual/))
+Figura 8. motor AC.  ([Fuente](https://www.mcb.com.mx/alta-demanda-de-los-motores-electricos-en-la-industria-actual/))
 
 ---
 
@@ -546,7 +546,7 @@ Se utilizan en **bombas de infusión, sillas de ruedas eléctricas y dispositivo
 
 ![Figura 9](imagenes/partes.png)
 
-Figura 9. Diagrama control Cascada.  ([Fuente](https://www.microscopio.pro/motores-electricos-corriente-continua-y-alterna/))
+Figura 9. Partes de motor DC y AC.  ([Fuente](https://www.microscopio.pro/motores-electricos-corriente-continua-y-alterna/))
 
 
 # **Motores de Corriente Alterna (AC)**  
