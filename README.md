@@ -471,6 +471,10 @@ Los motores de corriente continua son ampliamente utilizados en servomecanismos 
 
 - **Motores DC sin Escobillas (Brushless):** No poseen escobillas, lo que reduce el desgaste mecánico y mejora la eficiencia y la vida útil del motor. Se controlan electrónicamente mediante señales de conmutación.
 
+![Figura 7](imagenes/motordc.png)
+
+Figura 7. Diagrama control Cascada.  ([Fuente](https://universalblue.es/blog/que-es-un-motor-dc-o-inverter/))
+
 ### **2. Motores de Corriente Alterna (AC)**
 Los motores de corriente alterna se utilizan en aplicaciones donde se requiere mayor potencia y eficiencia energética. Son más robustos y requieren menos mantenimiento en comparación con los motores de corriente continua. Se dividen en dos categorías principales:
 
@@ -479,6 +483,10 @@ Los motores síncronos son aquellos cuya velocidad de giro está sincronizada co
 
 #### **Motores Asíncronos (de Inducción)**
 Los motores asíncronos, también conocidos como motores de inducción, son los más utilizados en la industria debido a su bajo costo y su funcionamiento confiable. En estos motores, la velocidad del rotor es ligeramente menor que la velocidad del campo magnético del estator. Se emplean en sistemas de bombeo, ventiladores, compresores y otras aplicaciones de alto rendimiento.
+
+![Figura 8](imagenes/motorac.png)
+
+Figura 8. Diagrama control Cascada.  ([Fuente](https://www.mcb.com.mx/alta-demanda-de-los-motores-electricos-en-la-industria-actual/))
 
 ---
 
@@ -535,6 +543,11 @@ Los motores DC se encuentran en **autos de control remoto, trenes eléctricos y 
 Se utilizan en **bombas de infusión, sillas de ruedas eléctricas y dispositivos de asistencia** debido a su precisión y fiabilidad.
 
 ---
+
+![Figura 9](imagenes/partes.png)
+
+Figura 9. Diagrama control Cascada.  ([Fuente](https://www.microscopio.pro/motores-electricos-corriente-continua-y-alterna/))
+
 
 # **Motores de Corriente Alterna (AC)**  
 
