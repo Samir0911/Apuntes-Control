@@ -421,7 +421,7 @@ Además, estudiamos diferentes **métodos de sintonización** para ajustar los p
 En general, comprendimos que el control en cascada es una estrategia poderosa en **sistemas industriales y automatización**, utilizada en motores, sistemas térmicos, procesos químicos, entre otros. Al aplicar este enfoque, logramos un mayor control y estabilidad en comparación con un sistema de control convencional.
 
 
-## Clase #3
+# Clase #3
 
 ---
 
@@ -582,7 +582,10 @@ Se utilizan en **bombas de infusión, sillas de ruedas eléctricas y dispositivo
 | **Motor AC Asíncrono (Inducción)** | - Bajo mantenimiento y alta durabilidad.  <br> - Menor costo de fabricación.  <br> - Muy utilizado en la industria. | - Peor control de velocidad comparado con los motores DC y síncronos.  <br> - Eficiencia menor en cargas variables.  <br> - Deslizamiento entre el campo magnético y el rotor. |
 
 Tabla 3. ventajas y desventajas de los tipos de motores.
+
+
 ---
+
 
 # **Zonas de Operación del Motor**
 
@@ -662,17 +665,181 @@ T_m = T_c + T_p
 $$\]
 
 ### **3. Parte Mecánica**  
-$$\[
+
+$$\[ 
 J\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + k\theta = \tau (t)
 \]$$
+ 
+ 
+$$\[
+L_a \frac{d}{dt} \left( \frac{J \ddot{\theta} + b \dot{\theta} + k \theta}{K_{\tau}} \right) + 
+R_a \left( \frac{J \ddot{\theta} + b \dot{\theta} + k \theta}{K_{\tau}} \right) + 
+K_e \dot{\theta} = v_a
+\]$$
+
+En general, esta ecuación permite entender cómo la aplicación de un voltaje controla la velocidad y posición del motor, considerando los efectos eléctricos, mecánicos y magnéticos. 🚀
 
 ---
 
-# **Conclusión**
-Aprendimos que los motores operan en **diferentes zonas de trabajo**, dependiendo de la carga y velocidad.  
-- La **curva de velocidad-torque** es clave para entender su desempeño.  
-- El **modelo por corriente de armadura** permite analizar el comportamiento eléctrico, magnético y mecánico.  
-- La variación de frecuencia en **motores AC** es una estrategia eficiente para el control de velocidad.
+# **Sensores para Motores**  
 
-Este conocimiento es fundamental para el **diseño y control de sistemas eléctricos** en aplicaciones industriales y de automatización.
+Los sensores en motores eléctricos son fundamentales para el control y monitoreo del sistema. Permiten medir diferentes variables como posición, velocidad y torque, optimizando el rendimiento del motor.  
+
+## **Tipos de Sensores**  
+
+1. **Sensores de Posición**  
+   - *Encoders ópticos*: Miden la posición angular y velocidad del motor mediante pulsos.  
+   - *Potenciómetros*: Usados en sistemas de baja precisión para medir posición.  
+   - *Sensores Hall*: Detectan el campo magnético y permiten medir posición en motores sin escobillas.  
+
+2. **Sensores de Velocidad**  
+   - *Tacómetros*: Generan un voltaje proporcional a la velocidad del motor.  
+   - *Encoders incrementales*: Determinan la velocidad a partir de cambios en la posición angular.  
+
+3. **Sensores de Torque**  
+   - *Galgas extensométricas*: Detectan la deformación en un eje para calcular el torque.  
+   - *Sensores de efecto Hall*: Miden el campo magnético generado por la corriente en el motor, estimando el torque.  
+
+---
+
+# **Mediciones de Torque**  
+
+El torque en un motor se mide utilizando sensores específicos que convierten la deformación o la corriente en valores utilizables.  
+
+### **Métodos de Medición**  
+
+1. **Medición directa**  
+   - Se usa un *torquímetro* o *celdas de carga* en el eje del motor.  
+
+2. **Medición indirecta**  
+   - Se mide la corriente en la armadura y se estima el torque con la ecuación:  
+
+   $$\[
+   T = K_I I_a
+   $$\]
+
+   Donde $\(K_I\)$ es la constante de torque del motor y $\(I_a\)$ la corriente en la armadura.  
+
+---
+
+# **Drivers de Potencia y Puente H**  
+
+Los drivers de potencia son circuitos encargados de controlar el flujo de energía hacia los motores.  
+
+## **Puente H**  
+
+El **Puente H** es un circuito utilizado para controlar la dirección y velocidad de motores DC. Funciona con cuatro transistores o MOSFETs, permitiendo invertir la polaridad del voltaje aplicado al motor.  
+
+### **Estados del Puente H**  
+
+| Transistor A | Transistor B | Movimiento |
+|-------------|-------------|------------|
+| ON          | OFF         | Giro en un sentido |
+| OFF         | ON          | Giro en el otro sentido |
+| ON          | ON          | Cortocircuito (evitar) |
+| OFF         | OFF         | Motor apagado |
+
+Tabla #4 Estados del Puente H.
+
+---
+
+# **Simulaciones en MATLAB y Simulink**  
+
+MATLAB y Simulink son herramientas ampliamente utilizadas para modelar, simular y analizar sistemas de control de motores.  
+
+## **Aplicaciones en Motores**  
+
+1. **Modelado Matemático**  
+   - Se pueden definir ecuaciones diferenciales para describir el comportamiento del motor.  
+
+2. **Simulación de Control PID**  
+   - Se diseña un controlador PID para regular la velocidad o posición del motor.  
+
+3. **Implementación de Control en Tiempo Real**  
+   - Permite probar algoritmos de control antes de aplicarlos en hardware real.  
+
+# Problema 1: Cálculo de Aceleración en un Motor DC
+
+**Enunciado:**  
+Un motor DC genera un torque constante de $T_m = 1.5$ Nm. El motor tiene un momento de inercia $J = 0.02$ \, $\text{kg·m}^2$ y un coeficiente de fricción viscosa $b = 0.05\$, $\text{N·m·s}$. Si el motor ya gira a una velocidad angular de $\omega = 20$\, $\text{rad/s}$ y se aplica el torque mencionado, calcule la aceleración angular $\alpha$ del motor.
+
+**Planteamiento:**  
+La dinámica del motor se puede modelar con la ecuación:
+
+$$T_m = J\,\alpha + b\,\omega$$  
+
+Despejamos la aceleración $$\alpha$$:
+
+$$\alpha = \frac{T_m - b\,\omega}{J}$$
+
+**Solución:**  
+Sustituyendo los valores:
+
+$$\alpha = \frac{1.5 - 0.05 \times 20}{0.02} = \frac{1.5 - 1.0}{0.02} = \frac{0.5}{0.02} = 25\, \text{rad/s}^2$$
+
+**Respuesta:**  
+La aceleración angular del motor es $25\, \text{rad/s}^2$.
+
+---
+
+# Problema 2: Estimación del Torque a partir de la Medición de Corriente
+
+**Enunciado:**  
+En un motor DC, el torque se relaciona con la corriente de armadura mediante la constante $K_I$ de la siguiente forma:
+
+$$T = K_I \, I_a$$  
+
+Si la constante de torque es $K_I = 0.15\$, $\text{Nm/A}$ y se mide una corriente de $I_a = 6.8$ A (con un error de $\pm 0.2$ A), determine el rango de valores posibles para el torque generado por el motor.
+
+**Planteamiento:**  
+Calculemos el torque mínimo y máximo usando:
+
+$$T_{\text{min}} = K_I \times (I_a - 0.2)$$  
+
+$$T_{\text{max}} = K_I \times (I_a + 0.2)$$
+
+**Solución:**  
+
+$$T_{\text{min}} = 0.15 \times (6.8 - 0.2) = 0.15 \times 6.6 = 0.99\, \text{Nm}$$  
+
+$$T_{\text{max}} = 0.15 \times (6.8 + 0.2) = 0.15 \times 7.0 = 1.05\, \text{Nm}$$
+
+**Respuesta:**  
+El torque generado se encuentra en el rango de aproximadamente $0.99\, \text{Nm}$ a $1.05\, \text{Nm}$.
+
+---
+
+# Problema 3: Estimación de la Velocidad de un Motor DC Controlado por PWM a través de un Puente H
+
+**Enunciado:**  
+Un motor DC es controlado por un puente H mediante modulación por ancho de pulso (PWM). El voltaje de la fuente es de $V_{\text{supply}} = 48\, \text{V}$ y se utiliza un ciclo de trabajo del 40% (0.4). Si la velocidad nominal sin carga del motor a 48 V es de 3600 rpm, determine:
+
+1. El voltaje promedio aplicado al motor.
+2. La velocidad esperada del motor bajo estas condiciones, asumiendo una relación lineal entre el voltaje y la velocidad.
+
+**Planteamiento:**  
+El voltaje efectivo $V_{\text{eff}}$ es:
+
+$$V_{\text{eff}} = V_{\text{supply}} \times \text{Duty Cycle}$$
+
+Y la velocidad se escala linealmente:
+
+$$\text{Velocidad} = \text{Velocidad Nominal} \times \text{Duty Cycle}$$
+
+**Solución:**  
+
+1. **Voltaje promedio:**
+   $$V_{\text{eff}} = 48\, \text{V} \times 0.4 = 19.2\, \text{V}$$
+
+2. **Velocidad esperada:**
+   $$\text{Velocidad} = 3600\, \text{rpm} \times 0.4 = 1440\, \text{rpm}$$
+
+**Respuesta:**  
+El voltaje promedio aplicado es de $19.2\, \text{V}$ y la velocidad esperada del motor es de $1440\, \text{rpm}$.
+
+
+# **Conclusiónes**
+
+
+A lo largo de estos apuntes, aprendimos y desarrollamos diversos conceptos sobre el control y funcionamiento de motores eléctricos, incluyendo motores DC y AC (síncronos y asíncronos). Comprendimos la importancia de medir variables como posición, velocidad y torque, así como el papel fundamental de los sensores en estos procesos. Analizamos los drivers de potencia, como el puente H, y su aplicación en el control de motores DC. Además, exploramos simulaciones en MATLAB y Simulink para modelar sistemas de control, lo que nos permite validar diseños antes de implementarlos físicamente. También resolvimos problemas matemáticos que reforzaron nuestra comprensión de la dinámica y el comportamiento de los motores. En general, estos temas nos han permitido consolidar conocimientos en el análisis y control de motores, preparándonos para enfrentar desafíos en sistemas de automatización y control industrial.
 
