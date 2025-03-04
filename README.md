@@ -482,6 +482,197 @@ Los motores asíncronos, también conocidos como motores de inducción, son los 
 
 ---
 
-## **Conclusión**
-Los **servomotores** desempeñan un papel fundamental en el control de movimiento, permitiendo un ajuste preciso de variables como la posición, la velocidad y el torque. Su diseño incluye secciones de comando, control y motor, que trabajan en conjunto para garantizar un desempeño óptimo. Existen diversos tipos de motores utilizados en servomecanismos, como los **motores DC** con y sin escobillas, así como los **motores AC síncronos y asíncronos**, cada uno con sus propias ventajas y aplicaciones. La elección del servomotor adecuado depende de la precisión, potencia y eficiencia requerida en cada aplicación específica.
+# **Motor de Corriente Continua (DC)**
+
+## **Partes del Motor DC**
+Un **motor de corriente continua (DC)** está compuesto por varios elementos esenciales que permiten su funcionamiento eficiente y preciso. Sus principales partes son:
+
+### **1. Estator**
+Es la parte fija del motor y su función es proporcionar un campo magnético estable. Puede estar compuesto por **imanes permanentes** en motores pequeños o por **devanados de campo** en motores más grandes.
+
+### **2. Rotor o Inducido**
+Es la parte giratoria del motor y contiene los devanados a través de los cuales fluye la corriente. El rotor gira cuando interactúa con el campo magnético generado por el estator.
+
+### **3. Conmutador**
+Es un anillo segmentado que cambia la dirección de la corriente en el inducido, permitiendo que el motor gire continuamente en una misma dirección. Se encuentra conectado al eje del rotor.
+
+### **4. Escobillas**
+Son contactos de carbono o grafito que presionan contra el conmutador para suministrar la corriente eléctrica al rotor. Con el tiempo, estas escobillas se desgastan y requieren reemplazo.
+
+### **5. Bobinas del Inducido**
+Son los devanados de cobre colocados en el rotor. Su función es generar un campo magnético cuando la corriente fluye a través de ellos, lo que provoca el movimiento del motor.
+
+### **6. Eje**
+Es el componente mecánico que transmite el movimiento del rotor hacia la carga externa que se desea accionar.
+
+### **7. Carcasa**
+Es la estructura que protege los componentes internos del motor y ayuda a disipar el calor generado durante su funcionamiento.
+
+---
+
+## **Aplicaciones del Motor DC**
+Los motores de corriente continua se utilizan en una gran variedad de aplicaciones debido a su facilidad de control y capacidad para operar en sistemas que requieren velocidad y torque ajustables. Algunas aplicaciones comunes incluyen:
+
+### **1. Robótica**
+Los motores DC se emplean en robots para controlar movimientos precisos de brazos, ruedas y actuadores.
+
+### **2. Vehículos Eléctricos**
+Los motores DC impulsan motocicletas eléctricas, bicicletas eléctricas y algunos modelos de automóviles eléctricos pequeños.
+
+### **3. Sistemas de Automatización Industrial**
+Se utilizan en **bandas transportadoras, máquinas CNC y sistemas de ensamblaje** que requieren velocidad y torque ajustables.
+
+### **4. Electrodomésticos**
+Aparecen en dispositivos como **batidoras, licuadoras, aspiradoras y taladros eléctricos** donde se necesita un control preciso de velocidad y potencia.
+
+### **5. Sistemas de Energía Renovable**
+Se emplean en **generadores eólicos y paneles solares con seguimiento automático**, optimizando la captura de energía.
+
+### **6. Juguetes y Modelismo**
+Los motores DC se encuentran en **autos de control remoto, trenes eléctricos y drones**, proporcionando la energía necesaria para su movimiento.
+
+### **7. Equipos Médicos**
+Se utilizan en **bombas de infusión, sillas de ruedas eléctricas y dispositivos de asistencia** debido a su precisión y fiabilidad.
+
+---
+
+# **Motores de Corriente Alterna (AC)**  
+
+---
+
+## **Motores Síncronos**  
+
+### **Partes del Motor Síncrono**  
+1. **Estator:** Contiene los devanados trifásicos que generan un campo magnético giratorio cuando se alimentan con corriente alterna.  
+2. **Rotor:** Puede ser un imán permanente o un devanado excitado con corriente continua.  
+3. **Anillos Rozantes y Escobillas:** Se utilizan en motores con rotor devanado para suministrar la corriente de excitación.  
+4. **Carcasa y Ventilación:** Protege los componentes internos y disipa el calor generado.  
+
+### **Aplicaciones del Motor Síncrono**  
+- Generadores eléctricos en plantas de energía.  
+- Sistemas de transmisión y distribución de electricidad.  
+- Compresores y bombas de gran capacidad.  
+- Equipos de precisión como relojes eléctricos e instrumentos científicos.  
+
+---
+
+## **Motores Asíncronos (de Inducción)**  
+
+### **Partes del Motor Asíncrono**  
+1. **Estator:** Contiene los devanados trifásicos donde se genera el campo magnético giratorio.  
+2. **Rotor en Cortocircuito o Rotor Bobinado:** Puede ser de jaula de ardilla o devanado trifásico, dependiendo del tipo de motor.  
+3. **Ventilador y Carcasa:** Mantienen el motor refrigerado y protegido de contaminantes externos.  
+
+### **Tipos de Motores Asíncronos**  
+- **Motor de Inducción de Jaula de Ardilla:** Es el más común debido a su bajo costo y mantenimiento reducido.  
+- **Motor de Inducción de Rotor Bobinado:** Se usa en aplicaciones que requieren control de velocidad mediante resistencias externas.  
+
+### **Aplicaciones del Motor Asíncrono**  
+- Bombas, ventiladores y compresores industriales.  
+- Ascensores y escaleras mecánicas.  
+- Máquinas herramientas y equipos de manufactura.  
+- Electrodomésticos como lavadoras y aires acondicionados.  
+
+---
+
+| **Tipo de Motor**       | **Ventajas** | **Desventajas** |
+|------------------------|-------------|---------------|
+| **Motor de Corriente Continua (DC)** | - Fácil control de velocidad y torque.  <br> - Alta respuesta dinámica.  <br> - Ideal para aplicaciones de precisión. | - Mayor mantenimiento por escobillas y conmutador.  <br> - Menor eficiencia en comparación con motores AC.  <br> - Vida útil reducida en modelos con escobillas. |
+| **Motor AC Síncrono** | - Velocidad constante sin importar la carga.  <br> - Alta eficiencia en cargas constantes.  <br> - Útil en aplicaciones de potencia y precisión. | - Requiere un sistema de excitación para el rotor.  <br> - Arranque complicado sin un controlador adicional.  <br> - Costoso en comparación con otros motores. |
+| **Motor AC Asíncrono (Inducción)** | - Bajo mantenimiento y alta durabilidad.  <br> - Menor costo de fabricación.  <br> - Muy utilizado en la industria. | - Peor control de velocidad comparado con los motores DC y síncronos.  <br> - Eficiencia menor en cargas variables.  <br> - Deslizamiento entre el campo magnético y el rotor. |
+
+Tabla 3. ventajas y desventajas de los tipos de motores.
+---
+
+# **Zonas de Operación del Motor**
+
+Los motores eléctricos tienen diferentes **zonas de operación** dependiendo de las condiciones de carga, velocidad y alimentación. Estas zonas determinan el comportamiento del motor y su rendimiento.
+
+## **1. Corto Tiempo Estando Detenido**
+Cuando el motor está detenido y se le aplica una tensión de alimentación, genera un **torque de arranque** que depende del diseño del motor. En esta fase:
+- La corriente de arranque es muy alta, generalmente **5 a 7 veces** la corriente nominal.
+- El torque inicial es mayor en **motores de inducción** y controlado en **motores DC**.
+- Se deben emplear técnicas de arranque como **arranque suave** o **variadores de frecuencia**.
+
+## **2. Velocidad Nominal**
+Es la velocidad de operación para la cual el motor ha sido diseñado. En esta zona:
+- El motor trabaja con **máxima eficiencia**.
+- Se logra un equilibrio entre el **torque mecánico** y la **carga aplicada**.
+- Se mantiene una **relación estable entre corriente y potencia**.
+
+## **3. Variando la Frecuencia**
+Cuando se varía la frecuencia de alimentación en **motores AC**, se puede modificar la velocidad del motor. Algunas consideraciones:
+- En **motores de inducción**, la velocidad está dada por:
+  
+  $$N_s = \frac{120 f}{P}$$
+
+  Donde:
+  - $\( N_s \)$ = velocidad síncrona (RPM)
+  - $\( f \)$ = frecuencia de alimentación (Hz)
+  - $\( P \)$ = número de polos del motor
+
+- Se utilizan **variadores de frecuencia (VFD)** para modificar la velocidad de manera eficiente.
+
+---
+
+# **Curvas de Velocidad-Torque del Motor**
+
+Las **curvas de velocidad-torque** muestran el comportamiento del motor en diferentes condiciones de carga. Existen tres tipos principales:
+
+1. **Motor de Corriente Continua (DC)**
+   - El torque es **inversamente proporcional** a la velocidad.
+   - La relación está dada por:
+
+     $$T = \frac{K}{N}$$
+
+2. **Motor Asíncrono (Inducción)**
+   - Presenta **deslizamiento** entre la velocidad del rotor y la velocidad síncrona.
+   - La curva tiene una pendiente pronunciada cerca de la velocidad nominal.
+
+3. **Motor Síncrono**
+   - No tiene deslizamiento, por lo que la velocidad es constante independientemente de la carga.
+   - Su curva de torque es **plana** en la velocidad nominal.
+
+---
+
+# **Modelo por Corriente de Armadura**
+
+El **modelo matemático** de un motor DC se divide en **tres partes**:
+
+## **Modelo por Corriente de Armadura**
+
+El **modelo matemático** de un motor DC se divide en **tres partes**:
+
+### **1. Parte Eléctrica**  
+$$\[
+v_a = L_a \dot{I_a} + R_a I_a + V_b
+$$\]
+
+### **2. Parte Magnética**  
+$$\[
+T_m = (K_a K_c I_c) I_a(t) = K_I I_a(t)
+$$\]
+
+$$\[
+V_b = K_e \omega
+$$\]
+
+$$\[
+T_m = T_c + T_p
+$$\]
+
+### **3. Parte Mecánica**  
+$$\[
+J\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + k\theta = \tau (t)
+\]$$
+
+---
+
+# **Conclusión**
+Aprendimos que los motores operan en **diferentes zonas de trabajo**, dependiendo de la carga y velocidad.  
+- La **curva de velocidad-torque** es clave para entender su desempeño.  
+- El **modelo por corriente de armadura** permite analizar el comportamiento eléctrico, magnético y mecánico.  
+- La variación de frecuencia en **motores AC** es una estrategia eficiente para el control de velocidad.
+
+Este conocimiento es fundamental para el **diseño y control de sistemas eléctricos** en aplicaciones industriales y de automatización.
 
